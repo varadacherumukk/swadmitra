@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwadMitra - Idli & Dosa Batter</title>
+    <link rel="stylesheet" href="in.css">
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <img src="logo.png" alt="Swadmitra Logo" class="logo-hero" style="max-width: 180px; max-height: 180px; display: block; margin: 0 auto 18px auto;">
+            <h1>Swadmitra</h1>
+            <p class="tagline">Fresh Idli & Dosa Batter Delivered to Your Doorstep</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a href="#order" class="cta-btn">Order Now</a>
+        </div>
+    </header>
+    <main>
+        <section class="products">
+            <h2>Our Product</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="bottle.jpg" alt="Idli & Dosa Batter Bottle" style="max-width: 140px; max-height: 140px; display: block; margin: 0 auto 10px auto; border-radius: 10px;">
+                    <h3>Idli & Dosa Batter</h3>
+                    <p>Perfect for making soft idlis and crispy dosas. Freshly prepared with premium ingredients.</p>
+                    <span class="price">₹60 / 1kg</span>
+                </div>
+            </div>
+        </section>
+        <section class="order">
+            <h2 id="order">Order Now</h2>
+            <div style="max-width:400px; margin:0 auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(56,142,60,0.07); padding:1.5rem;">
+                <form id="waOrderForm" onsubmit="sendWhatsAppOrder(event)">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="Name" required>
+                    <label for="quantity">Quantity (kg):</label>
+                    <input type="number" id="quantity" name="Quantity" min="1" required>
+                    <label for="address">Delivery Address:</label>
+                    <textarea id="address" name="Address" required></textarea>
+                    <button type="submit" class="cta-btn" style="width:100%;margin-top:1rem;">Order via WhatsApp</button>
+                </form>
+            </div>
+            <script>
+            function sendWhatsAppOrder(e) {
+                e.preventDefault();
+                var name = document.getElementById('name').value;
+                var quantity = document.getElementById('quantity').value;
+                var address = document.getElementById('address').value;
+                var msg = `Order for Idli & Dosa Batter\nName: ${name}\nQuantity: ${quantity} kg\nAddress: ${address}`;
+                var waUrl = `https://wa.me/919746190784?text=${encodeURIComponent(msg)}`;
+                window.open(waUrl, '_blank');
+            }
+            </script>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 SwadMitra. All rights reserved.</p>
+    </footer>
+</body>
+</html>
